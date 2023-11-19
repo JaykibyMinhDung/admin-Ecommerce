@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /public/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css
+/public/dist/css/icons/simple-line-icons/fonts/Simple-Line-Icons.eot
 
 # testing
 /coverage
