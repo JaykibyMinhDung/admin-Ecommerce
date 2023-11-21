@@ -4,7 +4,7 @@ import queryString from 'query-string';
 // Set up default config for http requests here
 // Please have a look at here `https://github.com/axios/axios#requestconfig` for the full list of configs
 const axiosClient = axios.create({
-	baseURL: 'https://server-ecommerce-ivory.vercel.app',
+	baseURL: 'https://ecommerce-5262.onrender.com',
 	withCredentials: true, // Accept server attack cookie
 	// credentials: "include",
 	headers: {

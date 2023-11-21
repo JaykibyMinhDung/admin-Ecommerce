@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import HistoryAPI from '../API/HistoryAPI';
 
 import io from 'socket.io-client';
-const socket = io('https://server-ecommerce-ivory.vercel.app', { transports : ['websocket']});
+const socket = io('https://ecommerce-5262.onrender.com', { transports : ['websocket']});
 
 function History(props) {
 	const [history, setHistory] = useState([]);

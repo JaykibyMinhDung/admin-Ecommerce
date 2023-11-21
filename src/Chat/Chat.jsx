@@ -4,7 +4,7 @@ import ChatRoomsAPI from '../API/ChatRoomsAPI';
 import './Chat.css';
 
 import io from 'socket.io-client';
-const socket = io('https://server-ecommerce-ivory.vercel.app', { transports : ['websocket']});
+const socket = io('https://ecommerce-5262.onrender.com', { transports : ['websocket']});
 
 function Chat(props) {
 	const [allRoom, setAllRoom] = useState([]);
