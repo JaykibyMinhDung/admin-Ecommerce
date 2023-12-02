@@ -22,7 +22,7 @@ const UserAPI = {
 	},
 
 	getLogout: () => {
-		const url = '/logout';
+		const url = '/admin/logout';
 		return axiosClient.get(url)
 	}
 };
