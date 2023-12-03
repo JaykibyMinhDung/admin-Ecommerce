@@ -155,7 +155,8 @@ function Products(props) {
                             <td>{value.price.toLocaleString("de-DE")}</td>
                             <td>
                               <img
-                                src={value.image[0]}
+                                // src={value.image[0]}
+                                src={'http://' + window.location.hostname + '/' + value.image[0]}
                                 style={{
                                   height: "60px",
                                   width: "60px",
