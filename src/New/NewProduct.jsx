@@ -28,7 +28,7 @@ const NewProduct = () => {
         console.log(key[0] + ', ' + key[1])
       }
       const response = await axios.post(
-        "http://localhost:5000/products/new-product",
+        "https://ecommerce-5262.onrender.com/products/new-product",
         formData,
         {
           withCredentials: true,

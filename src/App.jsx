@@ -11,10 +11,14 @@ import Login from "./Login/Login";
 import NewProduct from "./New/NewProduct";
 import Permission from "./pages/Permissions";
 import { AuthContextProvider } from "./Context/AuthContext";
+import { useEffect } from "react";
 
 function App() {
   const authLogin = localStorage.getItem("id_user");
   const permission = JSON.parse(localStorage.getItem("user"));
+  useEffect(() => {
+    !authLogin ? <Redirect to="/login" /> : <Redirect to="/" />
+  }, [authLogin])
   // console.log(document.cookie)
   // setInterval(() => {
   // 	localStorage.removeItem("id_user");
@@ -38,7 +42,7 @@ function App() {
             <Menu />
 
             <Switch>
-              {!authLogin && <Login />}
+              {/* {!authLogin && <Login />} */}
               {/* { authLogin ? <Redirect to="/" /> : <Redirect to="/login" /> }
               <Route path='/login' component={Login} /> */}
               {permission?.role < 2 && (
