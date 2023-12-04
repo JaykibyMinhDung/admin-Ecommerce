@@ -15,7 +15,7 @@ function Products(props) {
     category: "all",
   });
 
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
   const configImage = (imgRoot) => {
     const urlImage = imgRoot.split("://")[0];
     if (urlImage === 'https') {

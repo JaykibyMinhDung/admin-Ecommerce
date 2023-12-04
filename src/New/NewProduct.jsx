@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProductAPI from "../API/ProductAPI";
 import {useLocation} from "react-router-dom"
-import queryString from "query-string";
+// import queryString from "query-string";
 import axios from "axios";
 
 const NewProduct = () => {

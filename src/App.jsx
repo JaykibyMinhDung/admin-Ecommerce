@@ -7,7 +7,7 @@ import Home from "./Home/Home";
 import Menu from "./Menu/Menu";
 import Products from "./Products/Products";
 import Users from "./Users/Users";
-import Login from "./Login/Login";
+// import Login from "./Login/Login";
 import NewProduct from "./New/NewProduct";
 import Permission from "./pages/Permissions";
 import { AuthContextProvider } from "./Context/AuthContext";

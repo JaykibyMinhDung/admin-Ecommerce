@@ -1,20 +1,23 @@
 import React from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import UserAPI from '../API/UserAPI';
-import Logoicon from '../Image/logo-icon.png';
-import Logotext from '../Image/logo-text.png';
-import Logolight from '../Image/logo-light-text.png';
+// import Logoicon from '../Image/logo-icon.png';
+// import Logotext from '../Image/logo-text.png';
+// import Logolight from '../Image/logo-light-text.png';
 
 function Header(props) {
 	const { user } = useContext(AuthContext);
-	const { loading, error, dispatch } = useContext(AuthContext);
+	const { dispatch } = useContext(AuthContext); //  loading, error,
 
 	const handleLogout = async () => {
 		localStorage.removeItem("id_user")
-		await UserAPI.getLogout()
-		dispatch("LOGOUT");
+		await UserAPI.getLogout().then(() => {
+			return dispatch("LOGOUT");
+		}).then(() => {
+			return <Redirect to='/' />
+		}).catch(err => console.error(err))
 	}
 
 	return (

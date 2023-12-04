@@ -10,15 +10,22 @@ function Home(props) {
 	const [history, setHistory] = useState([]);
 	const [user, setUser] = useState([])
 	async function fetchData() {
-		const response = await HistoryAPI.getHistoryMonth();
-		const responseUser = await UserAPI.getAllUser();
-		setUser(responseUser);
-		setHistory(response);
+		try {
+			const response = await HistoryAPI.getHistoryMonth();
+			const responseUser = await UserAPI.getAllUser();
+			setUser(responseUser);
+			setHistory(response);
+		} catch (err) {
+			return console.error('Đã có lỗi xảy ra, vui lòng restart lại')
+		}
 	}
-	
 	useEffect(() => {
 		fetchData();
 	}, []);
+
+	if (history.message === 'Mật khẩu đăng nhập chưa đúng, vui lòng thử lại' || user.message === 'Mật khẩu đăng nhập chưa đúng, vui lòng thử lại') {
+		return <h2 style={{textAlign: 'center', color: 'red'}}>Vui lòng đăng nhập lại</h2>
+	}
 
 	const totalEarningHistories = history.data?.transaction.length && history.data.transaction.reduce((pre, after) => {
 		return pre + after.total

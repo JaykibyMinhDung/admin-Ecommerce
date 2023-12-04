@@ -1,5 +1,5 @@
-import React, { useState,useEffect, useContext } from 'react';
-import { useNavigate, Redirect } from 'react-router-dom';
+import React, { useState, useContext } from 'react'; // ,useEffect
+import { Redirect } from 'react-router-dom'; // useNavigate,
 import UserAPI from '../API/UserAPI';
 import { AuthContext } from '../Context/AuthContext';
 import './Login.css';
@@ -8,7 +8,7 @@ const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	// const [user, setUser] = useState([]);
-	const { user, loading, error, dispatch } = useContext(AuthContext);
+	const { user, dispatch } = useContext(AuthContext); // loading, error,
 	// const navigate = useNavigate();
 
 	// useEffect(() => {
