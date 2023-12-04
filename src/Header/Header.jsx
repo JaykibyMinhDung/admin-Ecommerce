@@ -12,7 +12,7 @@ function Header(props) {
 	const { dispatch } = useContext(AuthContext); //  loading, error,
 
 	const handleLogout = async () => {
-		localStorage.removeItem("id_user")
+		localStorage.clear()
 		await UserAPI.getLogout().then(() => {
 			return dispatch("LOGOUT");
 		}).then(() => {

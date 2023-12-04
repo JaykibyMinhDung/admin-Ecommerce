@@ -24,7 +24,7 @@ function Home(props) {
 	}, []);
 	console.log(history, user)
 	if (!history || !user ) {
-		return document.location.href("https://admin-ecommerce-vert.vercel.app/login")
+		return window.location.href("https://admin-ecommerce-vert.vercel.app/login")
 	}
 
 	const totalEarningHistories = history.data?.transaction.length && history.data.transaction.reduce((pre, after) => {
