@@ -16,10 +16,10 @@ import { useEffect } from "react";
 function App() {
   const authLogin = localStorage.getItem("id_user");
   const permission = JSON.parse(localStorage.getItem("user"));
-  // useEffect(() => {
-  //   console.log(!authLogin);
-  //   !authLogin ? <Redirect to="/" /> : <Redirect to="/login" />
-  // }, [authLogin])
+  useEffect(() => {
+    console.log(!authLogin);
+    return !authLogin && <Login />
+  }, [authLogin])
   // console.log(document.cookie)
   // setInterval(() => {
   // 	localStorage.removeItem("id_user");
@@ -43,7 +43,7 @@ function App() {
             <Menu />
 
             <Switch>
-              {!authLogin && <Login />}
+              {/* {!authLogin && <Login />} */}
               {/* { authLogin ? <Redirect to="/" /> : <Redirect to="/login" /> }
               <Route path='/login' component={Login} /> */}
               {permission?.role < 2 && (
