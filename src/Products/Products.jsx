@@ -18,7 +18,7 @@ function Products(props) {
   const [search, setSearch] = useState("");
   const configImage = (imgRoot) => {
     const urlImage = imgRoot.split("://")[0];
-    if (urlImage) {
+    if (urlImage === 'https') {
       console.log(urlImage)
       return imgRoot;
     } else {
