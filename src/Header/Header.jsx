@@ -16,10 +16,9 @@ function Header(props) {
 		await UserAPI.getLogout().then(() => {
 			return dispatch("LOGOUT");
 		}).then(() => {
-			return <Redirect to='/' />
+			return <Redirect to='/login' />
 		}).catch(err => console.error(err))
 	}
-
 	return (
 		<header className='topbar' data-navbarbg='skin6'>
 			<nav className='navbar top-navbar navbar-expand-md'>

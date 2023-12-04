@@ -46,9 +46,9 @@ function App() {
               {/* {!authLogin && <Login />} */}
               {/* { authLogin ? <Redirect to="/" /> : <Redirect to="/login" /> }
               <Route path='/login' component={Login} /> */}
-              <Route path="/Login" component={Login} />
               {permission?.role < 2 && (
                 <>
+                  <Route path="/Login" component={Login} />
                   <Route exact path="/" component={Home} />
                   <Route path="/chat" component={Chat} />
                   <Route path="/permission" component={Permission} />
