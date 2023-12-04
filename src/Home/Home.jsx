@@ -23,7 +23,7 @@ function Home(props) {
 		fetchData();
 	}, []);
 	console.log(history, user)
-	if (history?.length || user?.length ) {
+	if (!history || !user ) {
 		return document.location.href("https://admin-ecommerce-vert.vercel.app/login")
 	}
 
