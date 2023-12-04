@@ -24,7 +24,7 @@ function Products(props) {
     } else {
       const arrUrlImage = imgRoot.split('/');
       const arrLastNumber = arrUrlImage.length;
-      const nameImg = arrUrlImage[arrLastNumber]
+      const nameImg = arrUrlImage[arrLastNumber - 1]
       console.log(arrUrlImage, arrLastNumber, nameImg)
       return 'https://ecommerce-5262.onrender.com/public/' + nameImg
     }
