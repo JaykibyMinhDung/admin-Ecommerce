@@ -16,6 +16,19 @@ function Products(props) {
   });
 
   const [search, setSearch] = useState("");
+  const configImage = (imgRoot) => {
+    const urlImage = imgRoot.split("://")[0];
+    if (urlImage) {
+      console.log('Đây là url image')
+      return imgRoot;
+    } else {
+      const arrUrlImage = imgRoot.split('/');
+      const arrLastNumber = arrUrlImage.length;
+      const nameImg = arrUrlImage[arrLastNumber]
+      console.log('Đây là image từ local của khách')
+      return 'https://ecommerce-5262.onrender.com/public/' + nameImg
+    }
+  }
 
   const onChangeText = (e) => {
     const value = e.target.value;
@@ -156,7 +169,7 @@ function Products(props) {
                             <td>
                               <img
                                 // src={value.image[0]}
-                                src={'http://' + window.location.hostname + '/' + value.image[0]}
+                                src={configImage(value.image[0])}
                                 style={{
                                   height: "60px",
                                   width: "60px",
