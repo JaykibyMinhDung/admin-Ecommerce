@@ -23,8 +23,8 @@ function Home(props) {
 		fetchData();
 	}, []);
 
-	if (history.message === 'Mật khẩu đăng nhập chưa đúng, vui lòng thử lại' || user.message === 'Mật khẩu đăng nhập chưa đúng, vui lòng thử lại') {
-		return <h2 style={{textAlign: 'center', color: 'red'}}>Vui lòng đăng nhập lại</h2>
+	if (history.length || user.length ) {
+		return document.location.href("https://admin-ecommerce-vert.vercel.app/login")
 	}
 
 	const totalEarningHistories = history.data?.transaction.length && history.data.transaction.reduce((pre, after) => {
