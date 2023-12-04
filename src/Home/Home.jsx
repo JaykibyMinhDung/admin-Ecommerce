@@ -22,8 +22,8 @@ function Home(props) {
 	useEffect(() => {
 		fetchData();
 	}, []);
-
-	if (history.length || user.length ) {
+	console.log(history, user)
+	if (history?.length || user?.length ) {
 		return document.location.href("https://admin-ecommerce-vert.vercel.app/login")
 	}
 
