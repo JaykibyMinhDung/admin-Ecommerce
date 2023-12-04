@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import HistoryAPI from '../API/HistoryAPI';
 // import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import UserAPI from '../API/UserAPI';
 
 Home.propTypes = {};
@@ -24,7 +24,8 @@ function Home(props) {
 	}, []);
 	console.log(history, user)
 	if (!history || !user ) {
-		return window.location.href("https://admin-ecommerce-vert.vercel.app/login")
+		// return window.location.replace("https://admin-ecommerce-vert.vercel.app/login")
+		return <Redirect to='/login' />
 	}
 
 	const totalEarningHistories = history.data?.transaction.length && history.data.transaction.reduce((pre, after) => {
