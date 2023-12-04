@@ -18,7 +18,7 @@ function App() {
   const permission = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     console.log(!authLogin);
-    !authLogin ? <Redirect to="/login" /> : <Redirect to="/" />
+    !authLogin ? <Redirect to="/" /> : <Redirect to="/login" />
   }, [authLogin])
   // console.log(document.cookie)
   // setInterval(() => {
