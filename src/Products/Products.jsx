@@ -19,13 +19,13 @@ function Products(props) {
   const configImage = (imgRoot) => {
     const urlImage = imgRoot.split("://")[0];
     if (urlImage) {
-      console.log('Đây là url image')
+      console.log(urlImage)
       return imgRoot;
     } else {
       const arrUrlImage = imgRoot.split('/');
       const arrLastNumber = arrUrlImage.length;
       const nameImg = arrUrlImage[arrLastNumber]
-      console.log('Đây là image từ local của khách')
+      console.log(urlImage)
       return 'https://ecommerce-5262.onrender.com/public/' + nameImg
     }
   }
