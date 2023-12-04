@@ -17,6 +17,7 @@ function App() {
   const authLogin = localStorage.getItem("id_user");
   const permission = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
+    console.log(!authLogin);
     !authLogin ? <Redirect to="/login" /> : <Redirect to="/" />
   }, [authLogin])
   // console.log(document.cookie)

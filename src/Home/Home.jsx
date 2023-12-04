@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import HistoryAPI from '../API/HistoryAPI';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import UserAPI from '../API/UserAPI';
 
