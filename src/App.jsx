@@ -16,9 +16,12 @@ import { useEffect } from "react";
 function App() {
   const authLogin = localStorage.getItem("id_user");
   const permission = JSON.parse(localStorage.getItem("user"));
-  useEffect(() => {
-    console.log(!authLogin);
+  const resetHome = () => {
     return !authLogin && <Login />
+  }
+  useEffect(() => {
+    // return !authLogin && <Login />
+    resetHome()
   }, [authLogin])
   // console.log(document.cookie)
   // setInterval(() => {
@@ -43,7 +46,7 @@ function App() {
             <Menu />
 
             <Switch>
-              {/* {!authLogin && <Login />} */}
+              {resetHome()}
               {/* { authLogin ? <Redirect to="/" /> : <Redirect to="/login" /> }
               <Route path='/login' component={Login} /> */}
               {permission?.role < 2 && (
