@@ -43,6 +43,7 @@ const Login = () => {
     }
 
     if (redirect) {
+		console.log(redirect)
       return <Redirect to="/" />;
     }
     // if (findUser.password !== password) {
