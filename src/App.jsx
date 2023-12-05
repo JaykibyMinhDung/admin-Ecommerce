@@ -17,7 +17,7 @@ function App() {
   const authLogin = localStorage.getItem("id_user");
   const permission = JSON.parse(localStorage.getItem("user"));
   const resetHome = () => {
-    return !authLogin && <Login />
+    return !authLogin ? <Login /> : <Home />
   }
   useEffect(() => {
     // return !authLogin && <Login />
