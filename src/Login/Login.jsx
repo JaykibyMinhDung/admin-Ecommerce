@@ -36,13 +36,13 @@ const Login = () => {
       localStorage.setItem("id_user", response.data.id);
       // navigate("/")
       localStorage.setItem("user", JSON.stringify(response.data));
-      alert(response.meta.message);
       setRedirect(true);
     } catch (error) {
       alert(error || "Đăng nhập thất bại");
     }
 
     if (redirect) {
+		alert("Đăng nhập thành công");
 		console.log(redirect)
       return <Redirect to="/" />;
     }
