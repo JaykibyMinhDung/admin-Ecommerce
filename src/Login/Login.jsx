@@ -42,9 +42,7 @@ const Login = () => {
     }
 
     if (redirect) {
-		alert("Đăng nhập thành công");
-		console.log(redirect)
-      return <Redirect to="/" />;
+      return <Redirect to="/history" />;
     }
     // if (findUser.password !== password) {
     // 	setErrorPassword(true);
