@@ -53,6 +53,7 @@ function App() {
                 <>
                   <Route path="/Login" component={Login} />
                   <Route exact path="/" component={Home} />
+                  <Route path="/dashbroad" component={Home} />
                   <Route path="/chat" component={Chat} />
                   <Route path="/permission" component={Permission} />
                   {/*<Redirect to="/permission" /> */}
