@@ -7,7 +7,7 @@ import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false)
+  const [redirect, setRedirect] = useState(false);
   // const [user, setUser] = useState([]);
   const { user, dispatch } = useContext(AuthContext); // loading, error,
   // const navigate = useNavigate();
@@ -29,22 +29,22 @@ const Login = () => {
     // if (findUser && findUser.password === password) {
     try {
       const response = await UserAPI.getAllData({ email, password });
-		if (response.meta.statusCode) {
-			throw new Error(response.meta.message)
-		}
+      if (!response.meta.statusCode) {
+        throw new Error(response.meta.message);
+      }
       dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
       localStorage.setItem("id_user", response.data.id);
       // navigate("/")
       localStorage.setItem("user", JSON.stringify(response.data));
       alert(response.meta.message);
-	  setRedirect(true)
+      setRedirect(true);
     } catch (error) {
       alert(error || "Đăng nhập thất bại");
     }
 
-	if (redirect) {
-		return <Redirect to={{ pathname: '/' }} />;
-	}
+    if (redirect) {
+      return <Redirect to={{ pathname: "/" }} />;
+    }
     // if (findUser.password !== password) {
     // 	setErrorPassword(true);
     // 	return;
