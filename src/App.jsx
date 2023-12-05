@@ -60,6 +60,7 @@ function App() {
                 </>
               )}
               <Route exact path="/" component={Home} />
+              <Route path="/Login" component={Login} />
               <Route path="/chat" component={Chat} />
               <Route path="/users" component={Users} />
               <Route path="/products" component={Products} />

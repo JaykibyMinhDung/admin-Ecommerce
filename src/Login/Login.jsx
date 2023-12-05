@@ -43,7 +43,7 @@ const Login = () => {
     }
 
     if (redirect) {
-      return <Redirect to="/dashbroad" />;
+      return <Redirect to="/" />;
     }
     // if (findUser.password !== password) {
     // 	setErrorPassword(true);
