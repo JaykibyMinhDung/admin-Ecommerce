@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react"; // ,useEffect
-import { Redirect } from "react-router-dom"; // useNavigate,
+import { Redirect, useHistory } from "react-router-dom"; // useNavigate,
 import UserAPI from "../API/UserAPI";
 import { AuthContext } from "../Context/AuthContext";
 import "./Login.css";
@@ -10,7 +10,7 @@ const Login = () => {
   const [redirect, setRedirect] = useState(false);
   // const [user, setUser] = useState([]);
   const { user, dispatch } = useContext(AuthContext); // loading, error,
-  // const navigate = useNavigate();
+  const history = useHistory();
 
   // useEffect(() => {
   // 	const fetchData = async () => {
@@ -34,16 +34,13 @@ const Login = () => {
       }
       dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
       localStorage.setItem("id_user", response.data.id);
-      // navigate("/")
       localStorage.setItem("user", JSON.stringify(response.data));
-      setRedirect(true);
+	  alert(response.meta.message)
+      history.push('/')
     } catch (error) {
       alert(error || "Đăng nhập thất bại");
     }
-
-    if (redirect) {
-      return <Redirect to="/history" />;
-    }
+	
     // if (findUser.password !== password) {
     // 	setErrorPassword(true);
     // 	return;
