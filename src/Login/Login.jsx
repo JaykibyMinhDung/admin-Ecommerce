@@ -4,10 +4,9 @@ import UserAPI from "../API/UserAPI";
 import { AuthContext } from "../Context/AuthContext";
 import "./Login.css";
 
-const Login = () => {
+const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
   // const [user, setUser] = useState([]);
   const { user, dispatch } = useContext(AuthContext); // loading, error,
   const history = useHistory();
@@ -36,7 +35,7 @@ const Login = () => {
       localStorage.setItem("id_user", response.data.id);
       localStorage.setItem("user", JSON.stringify(response.data));
 	  alert(response.meta.message)
-      history.push('/')
+    props.setLogin(true);
     } catch (error) {
       alert(error || "Đăng nhập thất bại");
     }

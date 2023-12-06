@@ -20,6 +20,7 @@ function Header(props) {
       })
       .then(() => {
         setRedirect(true);
+        props.setLogout(false);
         return alert("Đăng xuất thành công");
       })
       .catch((err) => console.error(err));

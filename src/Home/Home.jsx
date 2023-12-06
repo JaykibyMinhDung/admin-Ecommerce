@@ -13,21 +13,18 @@ function Home(props) {
 		try {
 			const response = await HistoryAPI.getHistoryMonth();
 			const responseUser = await UserAPI.getAllUser();
+			if (!response?.meta.statusCode && !responseUser?.meta.statusCode) {
+				throw new Error(response?.message);
+			}
 			setUser(responseUser);
 			setHistory(response);
 		} catch (err) {
-			return console.error('Đã có lỗi xảy ra, vui lòng restart lại')
+			return console.error('Đã có lỗi xảy ra, vui lòng reset lại')
 		}
 	}
 	useEffect(() => {
 		fetchData();
 	}, []);
-	console.log(history, user)
-	if (!history || !user ) {
-		// return window.location.replace("https://admin-ecommerce-vert.vercel.app/login")
-		return <Redirect to='/login' />
-	}
-
 	const totalEarningHistories = history.data?.transaction.length && history.data.transaction.reduce((pre, after) => {
 		return pre + after.total
 	}, 0)

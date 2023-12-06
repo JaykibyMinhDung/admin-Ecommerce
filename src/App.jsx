@@ -11,22 +11,19 @@ import Login from "./Login/Login";
 import NewProduct from "./New/NewProduct";
 import Permission from "./pages/Permissions";
 import { AuthContextProvider } from "./Context/AuthContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [authState, setAuthState] = useState(authLogin);
   const authLogin = localStorage.getItem("id_user");
   const permission = JSON.parse(localStorage.getItem("user"));
-  const resetHome = () => {
-    return !authLogin && <Login />
-  }
   useEffect(() => {
-    // return !authLogin && <Login />
-    resetHome()
-  }, [authLogin])
-  // console.log(document.cookie)
-  // setInterval(() => {
-  // 	localStorage.removeItem("id_user");
-  // }, interval);
+    if (authLogin) {
+      setAuthState(true);
+    } else {
+      setAuthState(false);
+    }
+  }, [authLogin, permission]);
   return (
     <div className="App">
       <AuthContextProvider>
@@ -41,25 +38,23 @@ function App() {
             data-header-position="fixed"
             data-boxed-layout="full"
           >
-            <Header />
+            <Header setLogout={setAuthState} />
 
             <Menu />
 
             <Switch>
-              {resetHome()}
-              {/* { authLogin ? <Redirect to="/" /> : <Redirect to="/login" /> }
-              <Route path='/login' component={Login} /> */}
+              <Route path="/dashbroad" component={Home} />
+              <Route exact path="/">
+                {authState ? <Home /> : <Login setLogin={setAuthState} />}
+              </Route>
+              {!authState && <Login />}
               {permission?.role < 2 && (
                 <>
                   <Route path="/Login" component={Login} />
-                  <Route exact path="/" component={Home} />
-                  <Route path="/dashbroad" component={Home} />
                   <Route path="/chat" component={Chat} />
                   <Route path="/permission" component={Permission} />
-                  {/*<Redirect to="/permission" /> */}
                 </>
               )}
-              <Route exact path="/" component={Home} />
               <Route path="/Login" component={Login} />
               <Route path="/chat" component={Chat} />
               <Route path="/users" component={Users} />
