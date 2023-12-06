@@ -25,9 +25,9 @@ function Header(props) {
       })
       .catch((err) => console.error(err));
   };
-  if (redirect) {
-    return <Redirect to="/login" />;
-  }
+  // if (redirect) {
+  //   return <Redirect to="/login" />;
+  // }
   return (
     <header className="topbar" data-navbarbg="skin6">
       <nav className="navbar top-navbar navbar-expand-md">
