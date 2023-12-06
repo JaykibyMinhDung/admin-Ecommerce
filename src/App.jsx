@@ -14,9 +14,9 @@ import { AuthContextProvider } from "./Context/AuthContext";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [authState, setAuthState] = useState(authLogin);
   const authLogin = localStorage.getItem("id_user");
   const permission = JSON.parse(localStorage.getItem("user"));
+  const [authState, setAuthState] = useState(authLogin);
   useEffect(() => {
     if (authLogin) {
       setAuthState(true);
