@@ -34,12 +34,14 @@ const Login = (props) => {
       dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
       localStorage.setItem("id_user", response.data.id);
       localStorage.setItem("user", JSON.stringify(response.data));
-	  alert(response.meta.message)
-    props.setLogin(true);
+      alert(response.meta.message);
+      props.setLogin(true);
+      history.push('/dashbroad');
+      window.location.reload()
     } catch (error) {
       alert(error || "Đăng nhập thất bại");
     }
-	
+
     // if (findUser.password !== password) {
     // 	setErrorPassword(true);
     // 	return;

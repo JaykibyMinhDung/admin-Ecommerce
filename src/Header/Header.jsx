@@ -10,7 +10,7 @@ import UserAPI from "../API/UserAPI";
 function Header(props) {
   const { user } = useContext(AuthContext);
   const { dispatch } = useContext(AuthContext); //  loading, error,
-  const [redirect, setRedirect] = useState(false);
+  // const [redirect, setRedirect] = useState(false);
 
   const handleLogout = async () => {
     localStorage.clear();
@@ -19,7 +19,7 @@ function Header(props) {
         return dispatch("LOGOUT");
       })
       .then(() => {
-        setRedirect(true);
+        // setRedirect(true);
         props.setLogout(false);
         return alert("Đăng xuất thành công");
       })

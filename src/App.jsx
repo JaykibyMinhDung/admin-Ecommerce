@@ -24,6 +24,7 @@ function App() {
       setAuthState(false);
     }
   }, [authLogin, permission]);
+  // add redirect from to trong ham
   return (
     <div className="App">
       <AuthContextProvider>
@@ -43,19 +44,18 @@ function App() {
             <Menu />
 
             <Switch>
-              <Route path="/dashbroad" component={Home} />
               <Route exact path="/">
-                {authState ? <Home /> : <Login setLogin={setAuthState} />}
+                {authState ? <Redirect to="/dashbroad" /> : <Login setLogin={setAuthState} />}
               </Route>
+              <Route exact path="/login" component={Login} />
               {!authState && <Login />}
+              <Route path="/dashbroad" component={Home} />
               {permission?.role < 2 && (
                 <>
-                  <Route path="/Login" component={Login} />
                   <Route path="/chat" component={Chat} />
-                  <Route path="/permission" component={Permission} />
+                  <Route path="/" component={Permission} />
                 </>
               )}
-              <Route path="/Login" component={Login} />
               <Route path="/chat" component={Chat} />
               <Route path="/users" component={Users} />
               <Route path="/products" component={Products} />

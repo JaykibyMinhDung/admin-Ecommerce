@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import HistoryAPI from '../API/HistoryAPI';
 // import PropTypes from 'prop-types';
-import { Link, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import UserAPI from '../API/UserAPI';
 
 Home.propTypes = {};
 
 function Home(props) {
+	const windowHistory = useHistory()
 	const [history, setHistory] = useState([]);
 	const [user, setUser] = useState([])
 	async function fetchData() {
@@ -23,7 +24,7 @@ function Home(props) {
 		}
 	}
 	useEffect(() => {
-		fetchData();
+		fetchData().catch(() => {windowHistory.push('/login')});
 	}, []);
 	const totalEarningHistories = history.data?.transaction.length && history.data.transaction.reduce((pre, after) => {
 		return pre + after.total

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import ProductAPI from "../API/ProductAPI";
-import {useLocation} from "react-router-dom"
+import {useLocation, useHistory} from "react-router-dom"
 // import queryString from "query-string";
 import axios from "axios";
 
 const NewProduct = () => {
   const location = useLocation();
+  const history = useHistory()
   const [UpLoadForm, setUpLoadForm] = useState({
     name: location.state ? location.state?.name : "",
     category: location.state ? location.state.category : "",
@@ -37,7 +38,12 @@ const NewProduct = () => {
           }, 
         }
       )
-      return alert(response.meta.message);
+      . then(() => {
+        return alert(response.meta.message);
+      })
+      .then(() => {
+        history.push('/products')
+      })
     }
   };
 
