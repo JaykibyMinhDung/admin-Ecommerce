@@ -8,7 +8,9 @@ import UserAPI from "../API/UserAPI";
 // import Logolight from '../Image/logo-light-text.png';
 
 function Header(props) {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
+  const user = localStorage.getItem('user');
+  console.log(user)
   const { dispatch } = useContext(AuthContext); //  loading, error,
   // const [redirect, setRedirect] = useState(false);
 
@@ -21,7 +23,8 @@ function Header(props) {
       .then(() => {
         // setRedirect(true);
         props.setLogout(false);
-        return alert("Đăng xuất thành công");
+        alert("Đăng xuất thành công");
+        return window.location.reload()
       })
       .catch((err) => console.error(err));
   };
