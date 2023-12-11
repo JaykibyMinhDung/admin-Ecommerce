@@ -10,7 +10,6 @@ import UserAPI from "../API/UserAPI";
 function Header(props) {
   // const { user } = useContext(AuthContext);
   const user = JSON.parse(localStorage.getItem('user'));
-  console.log(user)
   const { dispatch } = useContext(AuthContext); //  loading, error,
   // const [redirect, setRedirect] = useState(false);
 
