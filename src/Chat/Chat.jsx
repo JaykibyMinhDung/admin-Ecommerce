@@ -80,7 +80,9 @@ function Chat(props) {
 		setTextMessage('');
 		
 		setTimeout(() => {
-			socket.emit('send_message', data);
+			socket.emit('send_message', data, (response) => {
+				console.log(response.status);
+			});
 			setLoad(true);
 		}, 200);
 	};
